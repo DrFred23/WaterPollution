@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "com.alfred.service1";
+option java_outer_classname = "DCSProto";
+
+package dcs;
+
+// The data collection service (DCS) definition.
+service DataCollectionService {
+  // A simple RPC that takes a DataRequest and returns a DataResponse.
+  rpc CollectData(DataRequest) returns (DataResponse) {}
+}
+
+// The DataRequest message contains 'deviceId', 'dataType', and 'timestamp'.
+message DataRequest {
+  string deviceId = 1;
+  string dataType = 2;
+  int64 timestamp = 3;
+}
+
+// The DataResponse message contains 'dataValue' and 'dataUnit'.
+message DataResponse {
+  string dataValue = 1;
+  string dataUnit = 2;
+}
