@@ -1,0 +1,25 @@
+syntax = "proto3";
+option java_multiple_files = false;
+option java_package = "com.alfred.service2";
+option java_outer_classname = "DASProto";
+package das;
+
+// The Data Analysis Service (DAS) definition.
+service DataAnalysisService {
+  // A simple RPC that takes an AnalysisRequest and returns an AnalysisResponse.
+  rpc AnalyzeData(AnalysisRequest) returns (AnalysisResponse) {}
+}
+
+// The AnalysisRequest message contains 'dataValue', 'dataUnit', and 'timestamp'.
+message AnalysisRequest {
+  string dataValue = 1;
+  string dataUnit = 2;
+  int64 timestamp = 3;
+}
+
+// The AnalysisResponse message contains 'analyzedValue', 'analysisSummary', and 'alert'.
+message AnalysisResponse {
+  string analyzedValue = 1;
+  string analysisSummary = 2;
+  bool alert = 3;
+}
