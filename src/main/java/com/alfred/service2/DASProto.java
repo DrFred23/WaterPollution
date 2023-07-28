@@ -3,6 +3,9 @@
 
 package com.alfred.service2;
 
+/**
+ *
+ */
 public final class DASProto {
   private DASProto() {}
   public static void registerAllExtensions(
