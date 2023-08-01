@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_multiple_files = false;
+option java_package = "com.alfred.service3";
+option java_outer_classname = "DVSProto";
+
+package dvs;
+
+// The Data Visualization Service (DVS) definition.
+service DataVisualizationService {
+  // A client streaming RPC that takes a stream of DisplayRequest and returns a DisplayResponse.
+  rpc DisplayData(stream DisplayRequest) returns (DisplayResponse) {}
+}
+
+// The DisplayRequest message contains 'analyzedValue', 'analysisSummary', and 'alert'.
+message DisplayRequest {
+  string analyzedValue = 1;
+  string analysisSummary = 2;
+  bool alert = 3;
+}
+
+// The DisplayResponse message contains 'status'.
+message DisplayResponse {
+  string status = 1;
+}
